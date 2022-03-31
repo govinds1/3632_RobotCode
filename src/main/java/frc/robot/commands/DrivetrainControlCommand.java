@@ -40,7 +40,7 @@ public class DrivetrainControlCommand extends CommandBase {
     // double rightPower = -m_joystick.getRawAxis(Constants.DRIVE_RIGHT_AXIS);
 
     double powerMult = 0.5;
-    if (m_joystick.getRawButton(Constants.DRIVE_BOOST_BUTTON)) {
+    if (m_joystick.getRawAxis(Constants.DRIVE_BOOST_AXIS) >= 0.1) {
       powerMult = 0.8;
     }
 

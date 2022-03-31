@@ -11,12 +11,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutoShootCommand;
 import frc.robot.commands.DrivetrainControlCommand;
 import frc.robot.commands.IntakeControlCommand;
+import frc.robot.commands.ClimberControlCommand;
 import frc.robot.commands.ShooterControlCommand;
 import frc.robot.commands.autonomous.AutonOneBall;
 import frc.robot.commands.autonomous.AutonTwoBall;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.ClimberSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -31,11 +33,14 @@ public class RobotContainer {
   private final DrivetrainSubsystem m_drivetrain = new DrivetrainSubsystem();
   private final IntakeSubsystem m_intake = new IntakeSubsystem();
   private final ShooterSubsystem m_shooter = new ShooterSubsystem();
+  private final ClimberSubsystem m_climber = new ClimberSubsystem();
   private final Joystick m_driverController = new Joystick(Constants.DRIVER_CONTROLLER);
   private final Joystick m_operatorController = new Joystick(Constants.OPERATOR_CONTROLLER);
 
   private final IntakeControlCommand m_intakeCommand = new IntakeControlCommand(m_intake, true);
   private final IntakeControlCommand m_outtakeCommand = new IntakeControlCommand(m_intake, false);
+  private final ClimberControlCommand m_climbUpCommand = new ClimberControlCommand(m_climber, true);
+  private final ClimberControlCommand m_climbDownCommand = new ClimberControlCommand(m_climber, false);
   private final ShooterControlCommand m_shooterSpinUpCommand = new ShooterControlCommand(m_shooter);
   private final DrivetrainControlCommand m_drivetrainControlCommand = new DrivetrainControlCommand(m_drivetrain, m_driverController);
   private final AutoShootCommand m_autoShootCommand = new AutoShootCommand(m_intake, m_shooter);
@@ -66,6 +71,9 @@ public class RobotContainer {
     new JoystickButton(m_operatorController, Constants.OUTTAKE_BUTTON).whileHeld(m_outtakeCommand);
     new JoystickButton(m_operatorController, Constants.SHOOT_BUTTON).whileHeld(m_autoShootCommand);
     new JoystickButton(m_operatorController, Constants.SHOOTER_SPINUP_BUTTON).whileHeld(m_shooterSpinUpCommand);
+
+    new JoystickButton(m_driverController, Constants.CLIMBUP_BUTTON).whileHeld(m_climbUpCommand);
+    new JoystickButton(m_driverController, Constants.CLIMBDOWN_BUTTON).whileHeld(m_climbDownCommand);
   }
 
   /**

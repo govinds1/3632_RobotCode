@@ -20,9 +20,10 @@ public final class Constants {
     public static final int LEFT_REAR_MOTOR = 1;
     public static final int RIGHT_FRONT_MOTOR = 2;
     public static final int RIGHT_REAR_MOTOR = 3;
-    public static final int INTAKE_MOTOR = 4;
-    public static final int SHOOTER1_MOTOR = 5;
-    public static final int SHOOTER2_MOTOR = 6;
+    public static final int CLIMBER_MOTOR = 4;
+    public static final int INTAKE_MOTOR = 5;
+    public static final int SHOOTER1_MOTOR = 6;
+    public static final int SHOOTER2_MOTOR = 7;
 
     // controller bindings
     public static final int INTAKE_BUTTON = 1;
@@ -33,7 +34,9 @@ public final class Constants {
     public static final int DRIVE_TURN_AXIS = 4;
     public static final int DRIVE_LEFT_AXIS = 1;
     public static final int DRIVE_RIGHT_AXIS = 5;
-    public static final int DRIVE_BOOST_BUTTON = 6;
+    public static final int DRIVE_BOOST_AXIS = 3;
+    public static final int CLIMBDOWN_BUTTON = 5;
+    public static final int CLIMBUP_BUTTON = 6;
     public static final int DRIVER_CONTROLLER = 0;
     public static final int OPERATOR_CONTROLLER = 0;
 
@@ -41,7 +44,9 @@ public final class Constants {
 
     // Calibrations
     public static final double INTAKE_POWER = 1;
-    public static final double OUTTAKE_POWER = 1;
+    public static final double OUTTAKE_POWER = -1;
+    public static final double CLIMBUP_POWER = 0.5;
+    public static final double CLIMBDOWN_POWER = -0.5;
     public static final double SHOOT_POWER = 1;
     public static final double SHOOT_RPM = 4000;
     public static final double SHOOT_SPIN_UP_TIME = 2.0;
